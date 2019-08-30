@@ -1,9 +1,9 @@
 pub fn main() anyerror!void {
-    var a = Bitmap.init();
-    var b = Bitmap.init();
-    var c = Bitmap.init();
+    a = Bitmap.init();
     std.debug.warn("{}\n", a);
 }
+
+var a: Bitmap = undefined;
 
 const Bitmap = @import("bitmap.zig").Bitmap;
 const std = @import("std");
