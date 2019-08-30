@@ -11,9 +11,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: install software
       run: |
-        ls -ltd /
-        sudo snap install --classic hub
-        hub --version
+        wget --quiet https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
+        tar zxf hub-linux-*.tgz
+        rm hub-linux-*.tgz
+        mv hub-linux-* hub-linux
+        ./hub-linux/bin/hub --version
 
         wget --quiet https://ziglang.org/builds/zig-linux-x86_64-0.4.0+94bbb46c.tar.xz
         tar Jxf zig-linux-*.tar.xz
