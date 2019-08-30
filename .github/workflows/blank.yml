@@ -26,3 +26,5 @@ jobs:
       run: ./zig-linux/zig test src/main.zig
     - name: build
       run: ./zig-linux/zig build
+    - name: hub test
+      run: hub
