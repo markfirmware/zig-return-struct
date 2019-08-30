@@ -1,8 +1,7 @@
-const std = @import("std");
-
 pub fn main() anyerror!void {
-    std.debug.warn("All your base are belong to us.\n");
+    var a = Bitmap.init();
+    std.debug.warn("{}\n", a);
 }
 
-test "something" {
-}
+const Bitmap = @import("bitmap.zig").Bitmap;
+const std = @import("std");
