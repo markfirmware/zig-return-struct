@@ -4,6 +4,7 @@ pub fn build(b: *Builder) void {
     const mode = b.standardReleaseOptions();
     const exe = b.addExecutable("zig-return-struct", "src/main.zig");
     exe.setBuildMode(mode);
+    exe.setOutputDir(".");
     exe.install();
 
     const run_cmd = exe.run();
