@@ -15,8 +15,7 @@ jobs:
         tar Jxf zig-linux-*.tar.xz
         rm zig-linux-*.tar.xz
         mv zig-linux-* zig-linux
-        ls -lt .
     - name: zig version
       run: |
-        export PATH=~/zig-linux:$PATH
+        export PATH=$HOME/zig-linux:$PATH
         zig version
