@@ -9,18 +9,15 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: install zig
+    - name: install software
       run: |
+        apt-get install -y hub
+        hub --version
+
         wget --quiet https://ziglang.org/builds/zig-linux-x86_64-0.4.0+94bbb46c.tar.xz
         tar Jxf zig-linux-*.tar.xz
         rm zig-linux-*.tar.xz
         mv zig-linux-* zig-linux
-    - name: zig version
-      run: |
-        export PATH=$HOME/zig-linux:$PATH
-        echo $PATH
-        pwd
-        ls -lt zig-linux
         ./zig-linux/zig version
     - name: test
       run: ./zig-linux/zig test src/main.zig
