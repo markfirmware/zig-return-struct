@@ -33,4 +33,4 @@ jobs:
       run: |
         RELEASE_TAG=$(date -u +%Y%m%d%H%M%S)
         zip release.zip bin/zig-return-struct-arm64
-        ./hub-linux/bin/hub release create --draft --prerelease --file release-message.md --attach release.zip $RELEASE_TAG
+        echo ./hub-linux/bin/hub release create --draft --prerelease --file release-message.md --attach release.zip $RELEASE_TAG
