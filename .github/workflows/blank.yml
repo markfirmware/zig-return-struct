@@ -31,6 +31,6 @@ jobs:
         GITHUB_USER: $GITHUB_ACTOR
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        RELEASE_TAG=v$(date -u +%Y%m%d%tH%M%S)
+        RELEASE_TAG=v$(date -u +%Y%m%dt%H%M%S)
         zip release.zip bin/zig-return-struct-arm64
         ./hub-linux/bin/hub release create --draft --prerelease --file release-message.md --attach release.zip $RELEASE_TAG
