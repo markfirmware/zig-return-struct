@@ -21,4 +21,4 @@ jobs:
         echo $PATH
         pwd
         ls -lt zig-linux
-        zig version
+        ./zig-linux/zig version
