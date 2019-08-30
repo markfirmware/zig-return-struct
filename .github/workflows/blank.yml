@@ -22,5 +22,7 @@ jobs:
         pwd
         ls -lt zig-linux
         ./zig-linux/zig version
-    - name: zig build
+    - name: test
+      run: ./zig-linux/zig test src/main.zig
+    - name: build
       run: ./zig-linux/zig build
