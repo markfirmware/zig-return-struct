@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: install software
       run: |
-        apt-get install -y hub
+        sudo apt-get install -y hub
         hub --version
 
         wget --quiet https://ziglang.org/builds/zig-linux-x86_64-0.4.0+94bbb46c.tar.xz
