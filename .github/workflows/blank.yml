@@ -9,9 +9,13 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: install zig
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        wget https://ziglang.org/builds/zig-linux-x86_64-0.4.0+94bbb46c.tar.xz
+        tar Jxf zig-linux-*.tar.xz
+        rm zig-linux-*.tar.xz
+        mv zig-linux-* zig-linux
+    - name: zig version
+      run: |
+        export PATH=~/zig-linux:$PATH
+        zig version
