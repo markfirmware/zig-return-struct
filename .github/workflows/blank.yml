@@ -28,6 +28,7 @@ jobs:
       run: ./zig-linux/zig build
     - name: release draft
       env:
+        GITHUB_USER: $GITHUB_ACTOR
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         RELEASE_TAG=$(date -u +%Y%m%d%H%M%S)
