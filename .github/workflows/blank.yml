@@ -22,3 +22,5 @@ jobs:
         pwd
         ls -lt zig-linux
         ./zig-linux/zig version
+    - name: zig build
+      run: zig build
