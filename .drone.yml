@@ -9,4 +9,4 @@ steps:
 - name: test
   image: gcc
   commands:
-  - ./zig-return-struct-arm64
+  - ./bin/zig-return-struct-arm64

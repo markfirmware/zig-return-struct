@@ -19,7 +19,7 @@ pub fn build(b: *Builder) void {
 
     const mode = b.standardReleaseOptions();
     exe.setBuildMode(mode);
-    exe.setOutputDir(".");
+    exe.setOutputDir("bin");
     exe.install();
 
     const run_cmd = exe.run();
