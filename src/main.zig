@@ -3,10 +3,6 @@ pub fn main() anyerror!void {
         : [current_el] "=r" (-> usize));
     warn("CurrentEL {x} exception level {}\n", current_el, current_el >> 2 & 0x3);
 
-    var sctlr = asm("mrs %[sctlr], sctlr"
-        : [sctlr] "=r" (-> usize));
-    warn("sctlr 0x{x}\n", sctlr);
-
     a = Bitmap.init();
     std.debug.warn("{}\n", a);
     b = Bitmap.init();
