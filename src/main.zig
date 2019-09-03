@@ -1,7 +1,11 @@
 pub fn main() anyerror!void {
-    var sctlr_el1 = asm("mrs %[sctlr_el1], sctlr_el1"
-        : [sctlr_el1] "=r" (-> usize));
-    warn("sctlr_el1 0x{x}\n", sctlr_el1);
+    var current_el = asm("mrs %[current_el], CurrentEL"
+        : [current_el] "=r" (-> usize));
+    warn("CurrentEL {x} exception level {}\n", current_el, current_el >> 2 & 0x3);
+
+    var sctlr = asm("mrs %[sctlr], sctlr"
+        : [sctlr] "=r" (-> usize));
+    warn("sctlr 0x{x}\n", sctlr);
 
     a = Bitmap.init();
     std.debug.warn("{}\n", a);
