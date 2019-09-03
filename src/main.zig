@@ -1,7 +1,7 @@
 pub fn main() anyerror!void {
-    var sctlr_el3 = asm("mrs %[sctlr_el3], sctlr_el3"
-        : [sctlr_el3] "=r" (-> usize));
-    warn("sctlr_el3 0x{x}\n", sctlr_el3);
+    var sctlr_el2 = asm("mrs %[sctlr_el2], sctlr_el2"
+        : [sctlr_el2] "=r" (-> usize));
+    warn("sctlr_el2 0x{x}\n", sctlr_el2);
 
     a = Bitmap.init();
     std.debug.warn("{}\n", a);
