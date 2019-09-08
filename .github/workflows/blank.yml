@@ -16,10 +16,9 @@ jobs:
         rm hub-linux-*.tgz
         mv hub-linux-* hub-linux
         ./hub-linux/bin/hub --version
-        
-        sudo apt-get install -y jq
 
         ZIG=$(wget --quiet --output-document=- https://ziglang.org/download/index.json | jq '.master."x86_64-linux".tarball')
+        echo $ZIG
         wget --quiet --output-document=zig.tar.xz $ZIG
         tar Jxf zig.tar.xz
         rm zig.tar.xz
