@@ -19,7 +19,7 @@ jobs:
 
         ZIG=$(wget --quiet --output-document=- https://ziglang.org/download/index.json | jq '.master."x86_64-linux".tarball')
         echo $ZIG
-        wget --quiet --output-document=zig.tar.xz $ZIG
+        wget $ZIG
         tar Jxf zig.tar.xz
         rm zig.tar.xz
         ls
