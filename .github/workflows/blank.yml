@@ -17,15 +17,16 @@ jobs:
         mv hub-linux-* hub-linux
         ./hub-linux/bin/hub --version
 
-        wget --quiet https://ziglang.org/builds/zig-linux-x86_64-0.4.0+94bbb46c.tar.xz
-        tar Jxf zig-linux-*.tar.xz
-        rm zig-linux-*.tar.xz
-        mv zig-linux-* zig-linux
-        ./zig-linux/zig version
+        ZIG=$(wget --quiet --output-document=- https://ziglang.org/download/index.json | jq '.master."x86_64-linux".tarball')
+        wget --quiet --output-document=zig.tar.xz $ZIG
+        tar Jxf zig.tar.xz
+        rm zig.tar.xz
+        ls
+        ./zig/zig version
     - name: test
-      run: ./zig-linux/zig test src/main.zig
+      run: ./zig/zig test src/main.zig
     - name: build
-      run: ./zig-linux/zig build
+      run: ./zig/zig build
     - name: release draft
       env:
         GITHUB_USER: $GITHUB_ACTOR
