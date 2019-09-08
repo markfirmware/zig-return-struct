@@ -22,3 +22,5 @@ var c: Bitmap = undefined;
 const Bitmap = @import("bitmap.zig").Bitmap;
 const std = @import("std");
 const warn = @import("std").debug.warn;
+
+const release_tag = "0.1";
