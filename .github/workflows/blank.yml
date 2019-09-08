@@ -11,8 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: install software
       run: |
-        wget --quiet --output-document=hub.tgz https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz | tar zxf hub.tgz
-        mv hub-linux-* hub
+        wget --quiet --output-document=hub.tgz https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz | tar zxf        mv hub-linux-* hub
         ./hub/bin/hub --version
 
         ZIG=$(wget --quiet --output-document=- https://ziglang.org/download/index.json | jq --raw-output '.master."x86_64-linux".tarball')
