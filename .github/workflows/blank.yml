@@ -30,6 +30,8 @@ jobs:
         GITHUB_USER: $GITHUB_ACTOR
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        RELEASE_TAG=v$(date -u +%Y%m%dt%H%M%S)
-        zip release.zip bin/zig-return-struct-arm64
-        ./hub/bin/hub release create --draft --prerelease --file release-message.md --attach release.zip $RELEASE_TAG
+        #RELEASE_TAG=v$(date -u +%Y%m%dt%H%M%S)
+        RELEASE_TAG=$(grep release_tag src/main.zig | sed 's/";//' | sed 's/^.*"//')
+        RELEASE_ASSET=zig-return-struct-$RELEASE_TAG.zip
+        zip $RELEASE_ASSET bin/zig-return-struct-arm64
+        ./hub/bin/hub release create --draft --prerelease --file release-message.md --attach $RELEASE_ASSET $RELEASE_TAG
