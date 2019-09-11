@@ -32,4 +32,7 @@ jobs:
         RELEASE_TAG=$(grep release_tag src/main.zig | sed 's/";//' | sed 's/^.*"//')
         RELEASE_ASSET=zig-return-struct-$RELEASE_TAG.zip
         zip $RELEASE_ASSET bin/zig-return-struct-arm64
-        ./hub/bin/hub release create --draft --prerelease --file release-message.md --attach $RELEASE_ASSET $RELEASE_TAG
+        echo $RELEASE_TAG > release-message.tmp
+        echo >> release-message.tmp
+        cat release-message.md >> release-message.tmp
+        ./hub/bin/hub release create --draft --prerelease --file release-message.tmp --attach $RELEASE_ASSET $RELEASE_TAG
