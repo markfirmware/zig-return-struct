@@ -16,7 +16,7 @@ jobs:
         ./hub/bin/hub --version
 
         ZIG=$(wget --quiet --output-document=- https://ziglang.org/download/index.json | jq --raw-output '.master."x86_64-linux".tarball')
-        wget --quiet --output-document=- $ZIG | tar Jxf
+        wget --quiet --output-document=- $ZIG | tar Jx
         mv zig-linux-x86_64-* zig
         ./zig/zig version
     - name: test
