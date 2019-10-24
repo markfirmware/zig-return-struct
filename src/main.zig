@@ -1,5 +1,6 @@
 
 pub fn main() void {
+    warn("program start");
     pollData();
     warn("program end - no exceptions encountered");
 }
