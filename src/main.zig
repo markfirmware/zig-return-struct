@@ -1,15 +1,19 @@
+
 pub fn main() void {
     pollData();
+    warn("program end - no exceptions encountered");
 }
 
 fn pollData() void {
     if (poll()) |event_data| {
-        var buf = event_data;
-        const rssi = buf[buf.len - 1]; // this is required to break
+        const buf = event_data;
+        _ = buf[buf.len - 1]; // this causes ldur q0 to be generated
     }
 }
 
-pub var poll_data_buf: [50]u8 = undefined;
-pub fn poll() ?[]u8 {
+var poll_data_buf: [50]u8 = undefined;
+fn poll() ?[]u8 {
     return poll_data_buf[0..];
 }
+
+const warn = @import("std").debug.warn;
