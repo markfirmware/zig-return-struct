@@ -9,4 +9,6 @@ steps:
 - name: test
   image: gcc
   commands:
+  - echo before program
   - ./bin/zig-return-struct-arm64
+  - echo after program $?

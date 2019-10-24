@@ -1,8 +1,8 @@
 
 pub fn main() void {
-    warn("program start");
+    warn("program start\n");
     pollData();
-    warn("program end - no exceptions encountered");
+    warn("program end - no exceptions encountered\n");
 }
 
 fn pollData() void {
