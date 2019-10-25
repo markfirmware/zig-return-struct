@@ -1,7 +1,8 @@
 
 pub fn main() void {
+    var q0_register: u128 = undefined;
     warn("program start\n");
-    pollData();
+    asm volatile("ldur q0, [sp, #-24]");
     warn("program end - no exceptions encountered\n");
 }
 
