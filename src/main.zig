@@ -1,21 +1,10 @@
 
 pub fn main() void {
-    var q0_register: u128 = undefined;
     warn("program start\n");
     asm volatile("ldur q0, [sp, #-24]");
-    warn("program end - no exceptions encountered\n");
-}
-
-fn pollData() void {
-    if (poll()) |event_data| {
-        const buf = event_data;
-        _ = buf[buf.len - 1]; // this causes ldur q0 to be generated
-    }
-}
-
-var poll_data_buf: [50]u8 = undefined;
-fn poll() ?[]u8 {
-    return poll_data_buf[0..];
+//  var d0_register = asm("vmov %[d0_register], d0"
+//      : [d0_register] "=r" (-> usize));
+    warn("program end - no exceptions encountere\n");
 }
 
 const warn = @import("std").debug.warn;
