@@ -8,11 +8,11 @@ pub fn main() anyerror!void {
     var z = x / y;
 
     a = Bitmap.init();
-    std.debug.warn("{}\n", a);
+    std.debug.warn("{}\n", .{a});
     b = Bitmap.init();
-    std.debug.warn("{}\n", b);
+    std.debug.warn("{}\n", .{b});
     c = Bitmap.init();
-    std.debug.warn("{}\n", c);
+    std.debug.warn("{}\n", .{c});
 }
 
 var a: Bitmap = undefined;
